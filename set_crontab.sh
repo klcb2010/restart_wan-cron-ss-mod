@@ -13,7 +13,7 @@ echo "" > "$LOG_FILE"
 echo "$(date): set_crontab.sh start" >> "$LOG_FILE"
 
 # 等待一段时间确保系统初始化完成
-sleep 30
+sleep 10
 
 # cron 文件路径
 CRON_FILE="/jffs/scripts/cron"
