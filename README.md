@@ -12,4 +12,4 @@
 
 4、下载 <pre><code class="language-html">mkdir -p /jffs/scripts/ && curl -o /jffs/scripts/restart_wan-cron-ss.sh https://mirror.ghproxy.com/https://raw.githubusercontent.com/klcb2010/restart_wan-cron-ss-mod/main/restart_wan-cron-ss.sh && chmod 777 /jffs/scripts/restart_wan-cron-ss.sh</code></pre>
 
-运行"/jffs/scripts/restart_wan-cron-ss.sh"
+运行<pre><code class="language-html">/jffs/scripts/restart_wan-cron-ss.sh</code></pre>
