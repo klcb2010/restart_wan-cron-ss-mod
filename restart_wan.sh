@@ -4,7 +4,7 @@
 SCRIPT_VERSION="1.0"
 
 # 日志文件路径
-LOG_FILE="/jffs/scripts/wan_log.log"
+LOG_FILE="/jffs/scripts/restart_wan.log"
 
 # 获取当前日期
 CURRENT_DATE=$(date +"%Y-%m-%d %H:%M:%S")
