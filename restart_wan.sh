@@ -7,7 +7,7 @@ SCRIPT_VERSION="1.0"
 LOG_FILE="/jffs/scripts/restart_wan_$(date +%Y-%m-%d).log"
 
 # 清理非当天的日志文件
-find /jffs/scripts/ -name "restart_wan_*.log" ! -name "$(basename "$LOG_FILE")" -type f -delete
+find /jffs/scripts/ -name "restart_wan_*.log" -type f ! -name "$(basename "$LOG_FILE")" -exec rm -f {} +
 
 # 记录脚本开始执行的日志
 CURRENT_DATE=$(date +"%Y-%m-%d %H:%M:%S")
