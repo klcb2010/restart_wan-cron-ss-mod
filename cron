@@ -1,4 +1,4 @@
-0 4,17 * * 0,3,6 /jffs/scripts/restart_wan.sh #wan_reboot#
+0  4,17 * * 0,2,4,6 /jffs/scripts/restart_wan.sh #wan_reboot#
 0 6 * * * /jffs/scripts/ss_rule_update.sh #supdate#
 0 17 * * 6 /jffs/scripts/ss_online_update.sh fancyss 3 #ssnodeupdate#
 49 21 */7 * * service restart_letsencrypt #LetsEncrypt#
