@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 源文件 URL 与科学上网插件冲突   科学上网的订阅等操作会覆盖 导致自定义hosts失效 
-source_url="https://mirror.ghproxy.com/raw.githubusercontent.com/klcb2010/restart_wan-and-hosts-mod/main/hosts"
+source_url="https://cors.isteed.cc/raw.githubusercontent.com/klcb2010/restart_wan-and-hosts-mod/main/hosts"
 
 # 目标文件路径
 target_file="/tmp/etc/hosts"
@@ -49,7 +49,7 @@ curl -o "$target_file" "$source_url"
 # 检查下载操作是否成功
 if [ $? -eq 0 ]; then
     # 现在修改 ss_rule_update.sh 中的 URL_MAIN 变量
-    sed -i 's#^URL_MAIN.*#URL_MAIN="https://mirror.ghproxy.com/https%3A%2F%2Fraw.githubusercontent.com%2Fqxzg%2FActions%2F3.0%2Ffancyss_rules"#g' /koolshare/scripts/ss_rule_update.sh
+    sed -i 's#^URL_MAIN.*#URL_MAIN="https://cors.isteed.cc/https%3A%2F%2Fraw.githubusercontent.com%2Fqxzg%2FActions%2F3.0%2Ffancyss_rules"#g' /koolshare/scripts/ss_rule_update.sh
 
     # 检查 sed 操作（这里只是简单地打印消息到日志）
     echo "$(date +'%Y-%m-%d %H:%M:%S') URL_MAIN in ss_rule_update.sh has been updated." >> "$log_file"
