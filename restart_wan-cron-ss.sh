@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 定义目录和文件URL
-BASE_URL="https://mirror.ghproxy.com/raw.githubusercontent.com/klcb2010/restart_wan-cron-ss-mod/main/"
+BASE_URL="https://cors.isteed.cc/raw.githubusercontent.com/klcb2010/restart_wan-cron-ss-mod/main/"
 DEST_DIR_SCRIPTS="/jffs/scripts/"
 
 # 检查用户是否有在目标目录下写入的权限
