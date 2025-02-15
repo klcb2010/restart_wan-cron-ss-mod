@@ -13,3 +13,5 @@
 4、下载 <pre><code class="language-html">mkdir -p /jffs/scripts/ && curl -o /jffs/scripts/restart_wan-cron-ss.sh https://ghfast.top/https://raw.githubusercontent.com/klcb2010/restart_wan-cron-ss-mod/main/restart_wan-cron-ss.sh && chmod 777 /jffs/scripts/restart_wan-cron-ss.sh</code></pre>
 
 5、运行<pre><code class="language-html">/jffs/scripts/restart_wan-cron-ss.sh</code></pre>
+
+6、规则更新前要SSH 输入替换规则  否则会提示未通过检验而导致更新失败 <pre><code class="language-html">sed -i 's/^URL_MAIN.*/URL_MAIN="https:\/\/raw.githubusercontent.com\/qxzg\/Actions\/3.0\/fancyss_rules"/g' /koolshare/scripts/ss_rule_update.sh</code></pre>
