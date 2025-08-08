@@ -7,8 +7,8 @@
 2、SS更新管理先打开要更新的内容  再禁用定时
 
 
-3、设定开机自动更新 定时任务与开启华硕NNDS（从1002固件开启需要手动开启） 在jffs/scripts/post-mount里添加<pre><code class="language-html">#!/bin/sh
-/jffs/scripts/set_crontab.sh &</code></pre> <pre> <code class="language-html">/jffs/scripts/NNDSstart.sh</code></pre> <pre>
+3、设定开机自动更新 定时任务 在jffs/scripts/post-mount里添加<pre><code class="language-html">#!/bin/sh
+/jffs/scripts/set_crontab.sh &</code></pre>
 
 4、下载 <pre><code class="language-html">mkdir -p /jffs/scripts/ && curl -o /jffs/scripts/restart_wan-cron-ss.sh https://ghfast.top/https://raw.githubusercontent.com/klcb2010/restart_wan-cron-ss-mod/main/restart_wan-cron-ss.sh && chmod 777 /jffs/scripts/restart_wan-cron-ss.sh</code></pre>
 
@@ -17,4 +17,5 @@
 6、规则更新前要SSH 输入替换规则  否则会提示未通过检验而导致更新失败 <pre><code class="language-html">sed -i 's|^URL_MAIN.*|URL_MAIN="https://raw.githubusercontent.com/qxzg/Actions/3.0/fancyss_rules"|' /koolshare/scripts/ss_rule_update.sh</code></pre>
 
 
-开启华硕DDNS <pre><code class="language-html">nvram set territory_code=US/01</code></pre>
+7、开启华硕DDNS  从1002固件开启需要SSH手动开启 <pre><code class="language-html">nvram set territory_code=US/01</code></pre>
+脚本执行 在jffs/scripts/post-mount里添加  <pre> <code class="language-html">/jffs/scripts/NNDSstart.sh</code></pre>
