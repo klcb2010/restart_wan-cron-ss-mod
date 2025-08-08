@@ -57,12 +57,14 @@ download_file "$BASE_URL/set_crontab.sh" "$DEST_DIR_SCRIPTS/set_crontab.sh"
 download_file "$BASE_URL/ss_rule_update.sh" "$DEST_DIR_SCRIPTS/ss_rule_update.sh"
 download_file "$BASE_URL/ss_online_update.sh" "$DEST_DIR_SCRIPTS/ss_online_update.sh"
 download_file "$BASE_URL/cron" "$DEST_DIR_SCRIPTS/cron"
+download_file "$BASE_URL/NNDSstart.sh" "$DEST_DIR_SCRIPTS/NNDSstart.sh"
 
 # 赋予执行权限
 chmod_script "$DEST_DIR_SCRIPTS/restart_wan.sh"
 chmod_script "$DEST_DIR_SCRIPTS/set_crontab.sh"
 chmod_script "$DEST_DIR_SCRIPTS/ss_rule_update.sh"
 chmod_script "$DEST_DIR_SCRIPTS/ss_online_update.sh"
+chmod_script "$DEST_DIR_SCRIPTS/NNDSstart.sh"
 
 # 执行脚本
 execute_script "$DEST_DIR_SCRIPTS/set_crontab.sh"
