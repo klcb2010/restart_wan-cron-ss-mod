@@ -15,3 +15,6 @@
 5、运行<pre><code class="language-html">/jffs/scripts/restart_wan-cron-ss.sh</code></pre>
 
 6、规则更新前要SSH 输入替换规则  否则会提示未通过检验而导致更新失败 <pre><code class="language-html">sed -i 's|^URL_MAIN.*|URL_MAIN="https://raw.githubusercontent.com/qxzg/Actions/3.0/fancyss_rules"|' /koolshare/scripts/ss_rule_update.sh</code></pre>
+
+
+开启华硕DDNS <pre><code nvram set territory_code=US/01</code></pre>
