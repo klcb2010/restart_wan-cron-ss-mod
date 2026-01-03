@@ -27,7 +27,7 @@
 
 刷 Asuswrt-Merlin 固件
 
-插上 USB 硬盘（自动挂载到 /tmp/mnt/SD 或 /tmp/mnt/SF 等）
+插上 USB 已经分区的硬盘ext3和ntfs
 
 开通外网访问：
 
