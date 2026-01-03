@@ -19,3 +19,38 @@
 
 7、开启华硕DDNS  从1002固件开启需要SSH手动开启 <pre><code class="language-html">nvram set territory_code=US/01</code></pre>
 脚本执行 在jffs/scripts/post-mount里添加  <pre> <code class="language-html">/jffs/scripts/NNDSstart.sh</code></pre>
+
+
+8 开启 webdav   同样在post-mount里调用   
+
+前提 
+
+刷 Asuswrt-Merlin 固件
+
+插上 USB 硬盘（自动挂载到 /tmp/mnt/SD 或 /tmp/mnt/SF 等）
+
+开通外网访问：
+
+网页后台开通 WAN 口 SSH（端口自定义默认22）
+
+开通 asuscomm.com DDNS
+
+开通 Let's Encrypt 免费证书（用于 HTTPS）
+
+SSH 登录路由器，安装 Entware
+
+通过amtm 安装 Entware 
+<pre> <code class="language-html">reboot</code></pre>
+<pre> <code class="language-html">opkg update</code></pre>
+<pre> <code class="language-html">opkg install rclone</code></pre>
+确认硬盘挂载路径
+<pre> <code class="language-html">ls /tmp/mnt/</code></pre>
+<pre> <code class="language-html">df -h | grep mnt</code></pre>
+记下主要分区路径（如 /tmp/mnt/SD/）
+
+创建独立自启脚本
+<pre> <code class="language-html">/jffs/scripts/rclone_webdav.sh &</code></pre>
+重启后执行下列命令 看到 rclone 进程和日志
+<pre> <code class="language-html">ps | grep rclone</code></pre>  
+
+<pre> <code class="language-html">cat /tmp/rclone.log</code></pre> 
