@@ -43,10 +43,10 @@ SSH 登录路由器，安装 Entware
 <pre> <code class="language-html">reboot</code></pre>
 <pre> <code class="language-html">opkg update</code></pre>
 <pre> <code class="language-html">opkg install rclone</code></pre>
-确认硬盘挂载路径
+确认硬盘挂载路径 如 /tmp/mnt/SD/
 <pre> <code class="language-html">ls /tmp/mnt/</code></pre>
 <pre> <code class="language-html">df -h | grep mnt</code></pre>
-记下主要分区路径（如 /tmp/mnt/SD/）
+
 
 创建独立自启脚本
 <pre> <code class="language-html">/jffs/scripts/rclone_webdav.sh &</code></pre>
