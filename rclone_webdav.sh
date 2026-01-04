@@ -5,7 +5,7 @@ sleep 90
 
 # 防止重复启动
 if ! pgrep -f "rclone serve webdav" > /dev/null; then
-    nohup /opt/bin/rclone serve webdav /tmp/mnt/SD/ --addr :8080 \
+    nohup /opt/bin/rclone serve webdav /tmp/mnt/SD/ --addr :8181 \
     --user 字母数字用户名 --pass 字母数字密码 \
     --cert /etc/cert.pem --key /etc/key.pem \
     > /tmp/rclone.log 2>&1 &
