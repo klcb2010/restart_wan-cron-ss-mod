@@ -11,8 +11,8 @@ fi
 # 启动 WebDAV
 nohup /opt/bin/rclone serve webdav /tmp/mnt/SD/ \
   --addr 0.0.0.0:8181 \
-  --user klcb2010 \
-  --pass ztx4043 \
+  --user 字母数字用户名 \
+  --pass 字母数字密码 \
   --cert /etc/cert.pem \
   --key /etc/key.pem \
   > /tmp/rclone.log 2>&1 &
