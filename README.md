@@ -54,3 +54,8 @@ SSH 登录路由器，安装 Entware
 <pre> <code class="language-html">ps | grep rclone</code></pre>  
 
 <pre> <code class="language-html">cat /tmp/rclone.log</code></pre> 
+
+
+停止
+
+<pre> <code class="language-html">killall rclone</code></pre>
