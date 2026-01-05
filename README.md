@@ -48,8 +48,8 @@ SSH 登录路由器，安装 Entware
 <pre> <code class="language-html">df -h | grep mnt</code></pre>
 
 
-创建独立自启脚本
-<pre> <code class="language-html">/jffs/scripts/rclone_webdav.sh &</code></pre>
+创建独立自启脚本运行
+<pre> <code class="language-html">/jffs/scripts/rclone_webdav.sh</code></pre>
 重启后执行下列命令 看到 rclone 进程和日志
 <pre> <code class="language-html">ps | grep rclone</code></pre>  
 
