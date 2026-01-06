@@ -21,7 +21,7 @@
 脚本执行 在jffs/scripts/post-mount里添加  <pre> <code class="language-html">/jffs/scripts/NNDSstart.sh &</code></pre>
 
 
-8 开启 webdav   同样在post-mount里调用   
+8 开启 webdav  用于向路由硬盘备份文档  同样在post-mount里调用   
 
 前提 
 
@@ -37,7 +37,7 @@
 
 开通 Let's Encrypt 免费证书（用于 HTTPS）
 
-SSH 登录路由器，安装 Entware
+SSH 登录路由器，进入amtm 安装 Entware
 
 通过amtm 安装 Entware 
 <pre> <code class="language-html">reboot</code></pre>
@@ -49,7 +49,7 @@ SSH 登录路由器，安装 Entware
 
 
 创建独立自启脚本运行
-<pre> <code class="language-html">/jffs/scripts/rclone_webdav.sh</code></pre>
+<pre> <code class="language-html">/jffs/scripts/rclone_webdav.sh &</code></pre>
 重启后执行下列命令 看到 rclone 进程和日志
 <pre> <code class="language-html">ps | grep rclone</code></pre>  
 
