@@ -3,7 +3,7 @@
 # 功能：检测华硕 DDNS 是否在线，异常立即触发重连
 # 日志文件，只保留最近一周记录
 LOG_FILE="/jffs/scripts/ddns_check.log"
-DDNS_DOMAIN="klcb2012.asuscomm.com"
+DDNS_DOMAIN="字母数字.asuscomm.com"
 MAX_LINES=42  # 4小时一次，一周大约42条记录
 
 # 确保日志目录存在
