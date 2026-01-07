@@ -59,6 +59,7 @@ download_file "$BASE_URL/ss_online_update.sh" "$DEST_DIR_SCRIPTS/ss_online_updat
 download_file "$BASE_URL/cron" "$DEST_DIR_SCRIPTS/cron"
 download_file "$BASE_URL/NNDSstart.sh" "$DEST_DIR_SCRIPTS/NNDSstart.sh"
 download_file "$BASE_URL/ddns_check.sh" "$DEST_DIR_SCRIPTS/ddns_check.sh"
+download_file "$BASE_URL/ddns_check.sh" "$DEST_DIR_SCRIPTS/rclone_webdav.sh"
 
 # 赋予执行权限
 chmod_script "$DEST_DIR_SCRIPTS/restart_wan.sh"
@@ -67,6 +68,7 @@ chmod_script "$DEST_DIR_SCRIPTS/ss_rule_update.sh"
 chmod_script "$DEST_DIR_SCRIPTS/ss_online_update.sh"
 chmod_script "$DEST_DIR_SCRIPTS/NNDSstart.sh"
 chmod_script "$DEST_DIR_SCRIPTS/ddns_check.sh"
+chmod_script "$DEST_DIR_SCRIPTS/rclone_webdav.sh"
 
 # 执行脚本
 execute_script "$DEST_DIR_SCRIPTS/set_crontab.sh"
