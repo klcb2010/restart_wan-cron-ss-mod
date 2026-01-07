@@ -18,7 +18,7 @@
 
 
 7、开启华硕DDNS  从1002固件开启需要SSH手动开启 
-脚本执行 在jffs/scripts/post-mount里添加  <pre> <code class="language-html">/jffs/scripts/NNDSstart.sh &</code></pre>
+脚本执行 在jffs/scripts/post-mount里添加  <pre> <code class="language-html">/jffs/scripts/set_territory.sh &</code></pre>
 
 
 8 开启 webdav  用于向路由硬盘备份文档  同样在post-mount里调用   <pre> <code class="language-html">/jffs/scripts/rclone_webdav.sh &</code></pre>
