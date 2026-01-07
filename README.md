@@ -17,7 +17,7 @@
 6、规则更新前要SSH 输入替换规则  否则会提示未通过检验而导致更新失败 <pre><code class="language-html">sed -i 's|^URL_MAIN.*|URL_MAIN="https://raw.githubusercontent.com/qxzg/Actions/3.0/fancyss_rules"|' /koolshare/scripts/ss_rule_update.sh</code></pre>
 
 
-7、开启华硕DDNS  从1002固件开启需要SSH手动开启 <pre><code class="language-html">nvram set territory_code=US/01</code></pre>
+7、开启华硕DDNS  从1002固件开启需要SSH手动开启 
 脚本执行 在jffs/scripts/post-mount里添加  <pre> <code class="language-html">/jffs/scripts/NNDSstart.sh &</code></pre>
 
 
@@ -49,7 +49,7 @@ SSH 登录路由器，进入amtm 安装 Entware
 
 
 创建独立自启脚本运行
-<pre> <code class="language-html">/jffs/scripts/rclone_webdav.sh</code></pre>
+<pre> <code class="language-html">/jffs/scripts/rclone_webdav.sh</code></pre>与<pre> <code class="language-html">ddns_check.sh</code></pre>确保DDNS不掉，需把ddns_check.sh加到定时任务里去
 重启后执行下列命令 看到 rclone 进程和日志
 <pre> <code class="language-html">ps | grep rclone</code></pre>  
 
