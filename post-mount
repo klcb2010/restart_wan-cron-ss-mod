@@ -1,0 +1,5 @@
+#!/bin/sh
+/koolshare/bin/ks-mount-start.sh start $1
+/jffs/scripts/set_crontab.sh &
+/jffs/scripts/set_territory.sh &
+/jffs/scripts/rclone_webdav.sh &
