@@ -47,7 +47,7 @@ execute_script() {
 }
 
 # 文件列表（用空格分隔，sh 兼容）
-FILES="Asuswrt-Merlin-Custom-Scripts.sh ss_rule_update.sh ss_online_update.sh cron set_territory.sh rclone_webdav.sh"
+FILES="Asuswrt-Merlin-Custom-Scripts.sh ss_rule_update.sh ss_online_update.sh cron set_territory.sh rclone_webdav.sh ipv6_watchdog.sh"
 
 # 下载并赋权限
 for file in $FILES; do
