@@ -12,7 +12,7 @@ DOMESTIC_DOMAINS="www.baidu.com www.sogou.com www.so.com www.taobao.com www.jd.c
 
 DDNS_HTTPS="https://.asuscomm.com:8443"  # 你的 DDNS HTTPS 测试地址
 
-PUSHPLUS_TOKEN="39ac79848955463abaccb22fa288134c"
+PUSHPLUS_TOKEN="39ac79848955463abaccb22fa28813"
 PUSHPLUS_TITLE="路由器网络异常"
 PUSHPLUS_URL="http://www.pushplus.plus/send"
 
