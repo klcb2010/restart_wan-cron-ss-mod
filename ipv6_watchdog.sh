@@ -1,16 +1,19 @@
 #!/bin/sh
-# v6.34 - 正式版：顺序轮换域名 ping，只保留当天日志（强制清理）
+# v6.38 - DDNS HTTPS 测试版：国内 ping + 外网 HTTPS 测试，不通重启 WAN + 推送（不报地址）
 
-SCRIPT_VERSION="6.34"
+SCRIPT_VERSION="6.38"
 LOG_DIR="/jffs/scripts"
 CHECK_INTERVAL=3600          # 60分钟一次
 WAN_COOLDOWN=180
+KEEP_DAYS=0
 PID_FILE="/var/run/ipv6_watchdog.pid"
 
 DOMESTIC_DOMAINS="www.baidu.com www.sogou.com www.so.com www.taobao.com www.jd.com"
 
-PUSHPLUS_TOKEN="token"
-PUSHPLUS_TITLE="路由器国内网络异常"
+DDNS_HTTPS="https://.asuscomm.com:8443"  # 你的 DDNS HTTPS 测试地址
+
+PUSHPLUS_TOKEN="39ac79848955463abaccb22fa288134c"
+PUSHPLUS_TITLE="路由器网络异常"
 PUSHPLUS_URL="http://www.pushplus.plus/send"
 
 mkdir -p "$LOG_DIR"
@@ -51,20 +54,36 @@ log "看门狗已启动 v$SCRIPT_VERSION"
 INDEX=1
 
 while true; do
-  cleanup_old_logs  # 每轮开始前清理旧日志
+  cleanup_old_logs
 
   TARGET_DOMAIN=$(echo "$DOMESTIC_DOMAINS" | cut -d ' ' -f $INDEX)
-  log "测试域名: $TARGET_DOMAIN (index $INDEX)"
+  log "测试国内域名: $TARGET_DOMAIN (index $INDEX)"
 
+  ping_ok=0
   if ping -c 3 -W 5 "$TARGET_DOMAIN" > /dev/null 2>&1; then
-    log "Ping 通过: $TARGET_DOMAIN"
+    ping_ok=1
+    log "国内 ping 通过: $TARGET_DOMAIN"
   else
-    msg="【国内网络异常】<br>$(date '+%Y-%m-%d %H:%M:%S')<br>ping $TARGET_DOMAIN 失败<br>路由器正在自动重启WAN...<br>机型：GT-AX6000"
-    log "Ping 失败: $TARGET_DOMAIN -> 重启 WAN"
+    log "国内 ping 失败: $TARGET_DOMAIN"
+  fi
+
+  foreign_ok=0
+  if curl -s -I --connect-timeout 10 "$DDNS_HTTPS" > /dev/null 2>&1; then
+    foreign_ok=1
+    log "外网 HTTPS 测试通过: $DDNS_HTTPS"
+  else
+    log "外网 HTTPS 测试失败: $DDNS_HTTPS (超时或连接失败)"
+  fi
+
+  if [ $ping_ok -eq 0 ] || [ $foreign_ok -eq 0 ]; then
+    msg="【网络异常】<br>$(date '+%Y-%m-%d %H:%M:%S')<br>国内域名 ping: $(if [ $ping_ok -eq 1 ]; then echo 通过; else echo 失败; fi) ($TARGET_DOMAIN)<br>外网 HTTPS 测试: $(if [ $foreign_ok -eq 1 ]; then echo 通过; else echo 失败; fi)<br>路由器正在自动重启WAN...<br>机型：GT-AX6000"
+    log "异常触发 -> 重启 WAN"
     service restart_wan >> "$LOG_FILE" 2>&1
     log "WAN 已重启，冷却 ${WAN_COOLDOWN}秒"
     pushplus_notify "$msg"
     sleep "$WAN_COOLDOWN"
+  else
+    log "全部通过，继续监控"
   fi
 
   INDEX=$((INDEX + 1))
