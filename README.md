@@ -8,7 +8,7 @@ kill $(ps | grep ipv6_watchdog | grep -v grep | awk '{print $1}') 2>/dev/null
 
 查看进程<pre><code class="language-html">ps | grep ipv6_watchdog | grep -v grep</code></pre>
 
-
+查看日志<pre><code class="language-html">tail -f /jffs/scripts/ipv6_watchdog_$(date +%Y-%m-%d).log</code></pre>
 
 
 1、定时任务前提条件
