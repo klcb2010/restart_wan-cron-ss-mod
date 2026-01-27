@@ -1,5 +1,5 @@
-0 6 * * * /jffs/scripts/ss_rule_update.sh #supdate#
-0 17 * * 6 /jffs/scripts/ss_online_update.sh fancyss 3 #ssnodeupdate#
-49 21 1 */2 * service restart_letsencrypt #LetsEncrypt#
-**/30 * * * * [ -z "$(ps | grep ipv6_watchdog | grep -v grep)" ] && /jffs/scripts/ipv6_watchdog.sh & #ipv6_watchdog#
-0 */6 * * * service restart_httpd #restart_httpd#
+0 6 * * * /jffs/scripts/ss_rule_update.sh >> /tmp/ss_rule_update.log 2>&1 #ss_rule_update#
+0 17 * * 6 /jffs/scripts/ss_online_update.sh fancyss 3 >> /tmp/ss_online_update.log 2>&1 #ss_online_update#
+49 21 * * 1 service restart_letsencrypt >> /tmp/letsencrypt.log 2>&1 #LetsEncrypt#
+*/30 * * * * [ -z "$(pidof ipv6_watchdog.sh)" ] && /jffs/scripts/ipv6_watchdog.sh >> /tmp/ipv6_watchdog.log 2>&1 & #ipv6_watchdog#
+*/10 * * * * [ -z "$(pidof httpd)" ] && service restart_httpd >> /tmp/httpd_watch.log 2>&1 #httpd_watch#
