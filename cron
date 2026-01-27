@@ -2,4 +2,4 @@
 0 17 * * 6 /jffs/scripts/ss_online_update.sh fancyss 3 >> /tmp/ss_online_update.log 2>&1 #ss_online_update#
 49 21 * * 1 service restart_letsencrypt >> /tmp/letsencrypt.log 2>&1 #LetsEncrypt#
 */30 * * * * [ -z "$(pidof ipv6_watchdog.sh)" ] && /jffs/scripts/ipv6_watchdog.sh >> /tmp/ipv6_watchdog.log 2>&1 & #ipv6_watchdog#
-*/10 * * * * [ -z "$(pidof httpd)" ] && service restart_httpd >> /tmp/httpd_watch.log 2>&1 #httpd_watch#
+*/15 * * * * [ -z "$(pidof httpd)" ] && service restart_httpd >> /tmp/httpd_watch.log 2>&1 #httpd_watch#
