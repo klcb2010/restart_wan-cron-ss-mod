@@ -1,12 +1,13 @@
 网络断流  客户端网络连接成功 但IPv6显示无连接 路由ping发现IPv4百分之百丢包 连锁反应 DDNS也断联 思路是每25分钟检查IPv4 发现丢包立即重置网络 脚本由此诞生
                                                                 
-仅适合梅林原版及改版
+适合梅林原版及改版、官改
 
-运行 /jffs/scripts/ipv6_watchdog.sh &
+运行 <pre><code class="language-html">chmod +x /jffs/scripts/ipv6_watchdog.sh
+kill $(ps | grep ipv6_watchdog | grep -v grep | awk '{print $1}') 2>/dev/null
+/jffs/scripts/ipv6_watchdog.sh &</code></pre>
 
-查看进程ps | grep ipv6_watchdog | grep -v grep   
+查看进程<pre><code class="language-html">ps | grep ipv6_watchdog | grep -v grep</code></pre>
 
-停止  kill $(ps | grep ipv6_watchdog | grep -v grep | awk '{print $1}') 2>/dev/null
 
 
 
