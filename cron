@@ -2,3 +2,4 @@
 0 17 * * 6 /jffs/scripts/ss_online_update.sh fancyss 3 #ssnodeupdate#
 49 21 1 */2 * service restart_letsencrypt #LetsEncrypt#
 **/30 * * * * [ -z "$(ps | grep ipv6_watchdog | grep -v grep)" ] && /jffs/scripts/ipv6_watchdog.sh & #ipv6_watchdog#
+0 */6 * * * service restart_httpd #restart_httpd#
