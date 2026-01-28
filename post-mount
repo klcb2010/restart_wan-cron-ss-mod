@@ -1,4 +1,6 @@
 #!/bin/sh
+. /jffs/addons/amtm/mount-entware.mod # Added by amtm
+swapon /tmp/mnt/SF/swapfile # Added by amtm
 /koolshare/bin/ks-mount-start.sh start $1
 /jffs/scripts/set_crontab.sh &
 /jffs/scripts/set_territory.sh &
