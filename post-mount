@@ -3,3 +3,4 @@
 /jffs/scripts/set_crontab.sh &
 /jffs/scripts/set_territory.sh &
 /jffs/scripts/rclone_webdav.sh &
+/jffs/scripts/ssh_key.sh &
