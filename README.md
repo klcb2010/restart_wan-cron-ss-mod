@@ -62,7 +62,7 @@ SSH 登录路由器，进入amtm 安装 Entware
 创建独立自启脚本运行
 <pre> <code class="language-html">/jffs/scripts/rclone_webdav.sh</code></pre>
 重启后执行下列命令 看到 rclone 进程和日志
-<pre> <code class="language-html">ps | grep rclone</code></pre>  
+<pre> <code class="language-html">ps | grep [r]clone</code></pre>  
 
 <pre> <code class="language-html">cat /tmp/rclone.log</code></pre> 
 
