@@ -1,6 +1,6 @@
 #!/bin/sh
 # 加载 SSH 公钥到 Dropbear
-PUBKEY="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM28EdHQ/f9eV2O17e34J5kJC1PQM8vj+YqGghHYo6dD u0_a491@localhost"
+PUBKEY=""
 
 # 持久化目录
 mkdir -p /jffs/.ssh
