@@ -1,0 +1,6 @@
+0 6 * * * /jffs/scripts/ss_rule_update.sh >> /tmp/ss_rule_update.log 2>&1 #ss_rule_update#
+0 17 * * 6 /jffs/scripts/ss_online_update.sh fancyss 3 >> /tmp/ss_online_update.log 2>&1 #ss_online_update#
+49 21 * * 1 service restart_letsencrypt >> /tmp/letsencrypt.log 2>&1 #LetsEncrypt#
+*/40 * * * * [ ! -f /var/run/ipv6_watchdog.pid ] || ! kill -0 $(cat /var/run/ipv6_watchdog.pid) 2>/dev/null && /jffs/scripts/ipv6_watchdog.sh >> /tmp/ipv6_watchdog_cron.log 2>&1 #ipv6_watchdog#
+*/40 * * * * [ ! -f /var/run/httpd_watch.pid ] || ! kill -0 $(cat /var/run/httpd_watch.pid) 2>/dev/null && /jffs/scripts/httpd_watch.sh >> /tmp/httpd_watch_cron.log 2>&1 #httpd_watch#
+*/40 * * * * pidof rclone >/dev/null || (killall -9 rclone 2>/dev/null; /jffs/scripts/rclone_webdav.sh >> /tmp/rclone_webdav.log 2>&1 &) #rclone_guard#
